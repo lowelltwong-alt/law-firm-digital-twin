@@ -1,0 +1,18 @@
+{
+  "all_semantics_identical": true,
+  "canonical_admission": false,
+  "canonical_write": false,
+  "changed_input_same_hash_required": false,
+  "contains_case_identifiers": false,
+  "contains_replay_or_environment_commitments": false,
+  "environment_lock_validated": true,
+  "external_effects": false,
+  "nonjoinable": true,
+  "run_count": 100,
+  "schema": "design_c_e2_replay_public_summary_v1",
+  "stale_environment_rejected": true,
+  "subprocess_isolation_used": true,
+  "unique_launch_commitment_count": 100,
+  "unique_process_id_count": 100,
+  "verified_launch_count": 100
+}

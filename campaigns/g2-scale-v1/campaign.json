@@ -1,0 +1,1727 @@
+{
+  "schema_version": "long_run_campaign.v2",
+  "campaign_id": "law-firm-digital-twin-g2-scale-v1",
+  "revision": "1",
+  "title": "Law Firm Digital Twin G2 ten-matter qualification campaign",
+  "objective": "Qualify provider-neutral contracts, projections, validators, specialist mesh, and Cursor adapter specification for exactly ten varied synthetic employment-defense matters without crossing G2.",
+  "completion_evidence": [
+    "checks/g2-scale-v1/final-verification.json",
+    "checks/g2-scale-v1/forward-test.json"
+  ],
+  "scope": {
+    "included": [
+      "src/",
+      "tests/",
+      "campaigns/g2-scale-v1/",
+      "generated/g2-scale-v1/",
+      "checks/g2-scale-v1/"
+    ],
+    "excluded": [
+      "private/",
+      "external-data/",
+      "deployment/",
+      "publication/",
+      "live-legal-data/",
+      "generated/other/"
+    ]
+  },
+  "source_authority": [
+    {
+      "path": "AGENTS.md",
+      "digest": "sha256:replace-before-launch"
+    },
+    {
+      "path": "docs/constitution.md",
+      "digest": "sha256:replace-before-launch"
+    },
+    {
+      "path": "docs/g2_build_status.md",
+      "digest": "sha256:replace-before-launch"
+    },
+    {
+      "path": "campaigns/g2-scale-v1/campaign.json",
+      "digest": "sha256:replace-before-launch"
+    }
+  ],
+  "authority": {
+    "allowed_effects": [
+      "leased job-path edits",
+      "local deterministic checks",
+      "append-only controller receipts"
+    ],
+    "prohibited_effects": [
+      "publish",
+      "deploy",
+      "external messages",
+      "network or external services",
+      "read private/",
+      "real or client data",
+      "paid legal records",
+      "G3",
+      "global settings",
+      "unrelated changes",
+      "worker controller-state edits"
+    ],
+    "human_gates": [
+      "baseline digest",
+      "unattended launch",
+      "new case family",
+      "qualified schema or validator change",
+      "G3 or external data",
+      "budget extension",
+      "publication or deployment"
+    ]
+  },
+  "execution": {
+    "mode": "specification_only",
+    "controller_role": "campaign-controller",
+    "state_root": ".campaign-state/g2-scale-v1/",
+    "receipt_log": ".campaign-state/g2-scale-v1/receipts.jsonl",
+    "authorized_paths": [
+      ".campaign-state/g2-scale-v1/"
+    ],
+    "durability_command": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py",
+    "adapter": {
+      "name": "cursor-adapter-candidate",
+      "revision": "unqualified-v1"
+    },
+    "launch_command": "not-authorized",
+    "shutdown_command": "not-authorized",
+    "qualification_evidence": "not-authorized",
+    "dry_run_evidence": "not-authorized",
+    "authorization_receipt": "not-authorized",
+    "independent_launch_review": "not-authorized"
+  },
+  "specialist_mesh": {
+    "synthetic_world_artifacts": true,
+    "truth_authority": "world-kernel-only",
+    "capability_matrix_evidence": "src/law_firm_digital_twin/case_manifest.py",
+    "whole_case_audit_gate": "G-J210-PRIMARY",
+    "voice_representation_audit_gate": "G-J120-PRIMARY"
+  },
+  "budgets": {
+    "wall_clock_hours": 72,
+    "cost_units": 100,
+    "max_attempts_total": 20,
+    "max_parallel_jobs": 3,
+    "max_storage_mb": 250,
+    "max_context_tokens_per_job": 24000,
+    "max_job_minutes": 90,
+    "max_output_mb_per_job": 20
+  },
+  "gold_standards": [
+    {
+      "id": "GS-001",
+      "statement": "Preserve G2 behavior and unrelated user work.",
+      "gate_type": "deterministic",
+      "evidence": "checks/g2-scale-v1/g2-regression.json"
+    },
+    {
+      "id": "GS-002",
+      "statement": "Only the world kernel owns canonical facts, authority, custody, and outcomes.",
+      "gate_type": "deterministic",
+      "evidence": "checks/g2-scale-v1/truth-authority.json"
+    },
+    {
+      "id": "GS-003",
+      "statement": "Exactly ten synthetic employment matters satisfy varied population and complexity bounds.",
+      "gate_type": "deterministic",
+      "evidence": "checks/g2-scale-v1/population.json"
+    },
+    {
+      "id": "GS-004",
+      "statement": "Operating and renderer projections expose no sealed truth, labels, or join keys.",
+      "gate_type": "deterministic",
+      "evidence": "checks/g2-scale-v1/projection-nonleakage.json"
+    },
+    {
+      "id": "GS-005",
+      "statement": "Every artifact plan uses a qualified capability, fact allowlist, knowledge frontier, and custody lineage.",
+      "gate_type": "deterministic",
+      "evidence": "checks/g2-scale-v1/evidence-coverage.json"
+    },
+    {
+      "id": "GS-006",
+      "statement": "Locked seeds, manifests, and cassettes replay to identical hashes.",
+      "gate_type": "deterministic",
+      "evidence": "checks/g2-scale-v1/replay.json"
+    },
+    {
+      "id": "GS-007",
+      "statement": "Voice checks reject template collapse, caricature, and stereotype proxies.",
+      "gate_type": "independent",
+      "evidence": "checks/g2-scale-v1/voice-representation.json"
+    },
+    {
+      "id": "GS-008",
+      "statement": "Write leases and controller receipts reconcile.",
+      "gate_type": "deterministic",
+      "evidence": "checks/g2-scale-v1/controller-reconciliation.json"
+    },
+    {
+      "id": "GS-009",
+      "statement": "No external data, real identities, legal-authority claim, G3, publication, or deployment.",
+      "gate_type": "deterministic",
+      "evidence": "checks/g2-scale-v1/authority-boundary.json"
+    }
+  ],
+  "phases": [
+    {
+      "id": "P0",
+      "title": "Authority baseline",
+      "depends_on": [],
+      "waves": [
+        {
+          "id": "P0-W1",
+          "title": "Authority baseline",
+          "depends_on": [],
+          "subwaves": [
+            {
+              "id": "P0-W1-S1",
+              "title": "Authority baseline",
+              "depends_on": [],
+              "jobs": [
+                {
+                  "id": "J000",
+                  "title": "Bind baseline and human authority",
+                  "objective": "Produce immutable baseline, budget, and authority receipt.",
+                  "non_goals": [
+                    "external data",
+                    "G3 rendering",
+                    "publication or deployment",
+                    "controller-state edits",
+                    "unrelated refactoring"
+                  ],
+                  "depends_on": [],
+                  "dependency_digests": {},
+                  "inputs": [
+                    "AGENTS.md",
+                    "docs/constitution.md",
+                    "docs/g2_build_status.md",
+                    "campaigns/g2-scale-v1/campaign.json"
+                  ],
+                  "input_digests": {
+                    "AGENTS.md": "sha256:replace-before-launch",
+                    "docs/constitution.md": "sha256:replace-before-launch",
+                    "docs/g2_build_status.md": "sha256:replace-before-launch",
+                    "campaigns/g2-scale-v1/campaign.json": "sha256:replace-before-launch"
+                  },
+                  "outputs": [
+                    "checks/g2-scale-v1/baseline-authority.json"
+                  ],
+                  "allowed_paths": [
+                    "checks/g2-scale-v1/baseline-authority.json"
+                  ],
+                  "prohibited_actions": [
+                    "publish",
+                    "deploy",
+                    "network or external access",
+                    "read private/",
+                    "real client data",
+                    "controller-state edits",
+                    "weaken gates"
+                  ],
+                  "owner_role": "campaign-controller",
+                  "checker_role": "human-campaign-owner",
+                  "required_capabilities": [
+                    "typed contracts",
+                    "synthetic-only boundary",
+                    "deterministic replay",
+                    "bounded writes"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/campaign-controller.json",
+                    "checks/g2-scale-v1/qualifications/human-campaign-owner.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J000:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J000.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J000.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J000",
+                  "retry_policy": {
+                    "classes": [
+                      "transient",
+                      "repairable_output",
+                      "stale_dependency",
+                      "authority_or_human",
+                      "security_privacy",
+                      "terminal_spec"
+                    ],
+                    "backoff_seconds": [
+                      600
+                    ],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": [
+                      "human gate",
+                      "inconclusive validation",
+                      "repair limit",
+                      "authority change"
+                    ]
+                  },
+                  "handoff_states": [
+                    "complete",
+                    "failed",
+                    "blocked",
+                    "resumable"
+                  ],
+                  "auto_advance": false,
+                  "acceptance": [
+                    {
+                      "id": "G-J000-PRIMARY",
+                      "revision": "1",
+                      "type": "human",
+                      "checker_role": "human-campaign-owner",
+                      "inputs": [
+                        "AGENTS.md",
+                        "docs/constitution.md",
+                        "docs/g2_build_status.md",
+                        "campaigns/g2-scale-v1/campaign.json",
+                        "checks/g2-scale-v1/baseline-authority.json"
+                      ],
+                      "command": "not-authorized-human-gate",
+                      "rubric": "not-applicable",
+                      "evidence": "checks/g2-scale-v1/J000-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and gate passes",
+                        "fail_repairable": "bounded defect inside write scope",
+                        "fail_terminal": "protected invariant fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": [
+                        "J000"
+                      ],
+                      "revalidation_triggers": [
+                        "input digest",
+                        "core or adapter revision",
+                        "validator revision",
+                        "privacy or authority",
+                        "scope"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P1",
+      "title": "Portable typed core",
+      "depends_on": [
+        "P0"
+      ],
+      "waves": [
+        {
+          "id": "P1-W1",
+          "title": "Portable typed core",
+          "depends_on": [
+            "J000"
+          ],
+          "subwaves": [
+            {
+              "id": "P1-W1-S1",
+              "title": "Portable typed core",
+              "depends_on": [
+                "J000"
+              ],
+              "jobs": [
+                {
+                  "id": "J100",
+                  "title": "Compile projection-separated manifests",
+                  "objective": "Implement manifest to sealed world plus least-privilege operating, renderer, and evaluation projections.",
+                  "non_goals": [
+                    "external data",
+                    "G3 rendering",
+                    "publication or deployment",
+                    "controller-state edits",
+                    "unrelated refactoring"
+                  ],
+                  "depends_on": [
+                    "J000"
+                  ],
+                  "dependency_digests": {
+                    "J000": "sha256:required-before-launch"
+                  },
+                  "inputs": [
+                    "src/law_firm_digital_twin/case_manifest.py",
+                    "src/law_firm_digital_twin/world.py",
+                    "tests/test_g2_contracts.py"
+                  ],
+                  "input_digests": {
+                    "src/law_firm_digital_twin/case_manifest.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/world.py": "sha256:replace-before-launch",
+                    "tests/test_g2_contracts.py": "sha256:replace-before-launch"
+                  },
+                  "outputs": [
+                    "src/law_firm_digital_twin/case_compiler.py",
+                    "tests/test_projection_boundaries.py"
+                  ],
+                  "allowed_paths": [
+                    "src/law_firm_digital_twin/case_compiler.py",
+                    "tests/test_projection_boundaries.py"
+                  ],
+                  "prohibited_actions": [
+                    "publish",
+                    "deploy",
+                    "network or external access",
+                    "read private/",
+                    "real client data",
+                    "controller-state edits",
+                    "weaken gates"
+                  ],
+                  "owner_role": "case-compiler-worker",
+                  "checker_role": "projection-checker",
+                  "required_capabilities": [
+                    "typed contracts",
+                    "synthetic-only boundary",
+                    "deterministic replay",
+                    "bounded writes"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/case-compiler-worker.json",
+                    "checks/g2-scale-v1/qualifications/projection-checker.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J100:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J100.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J100.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J100",
+                  "retry_policy": {
+                    "classes": [
+                      "transient",
+                      "repairable_output",
+                      "stale_dependency",
+                      "authority_or_human",
+                      "security_privacy",
+                      "terminal_spec"
+                    ],
+                    "backoff_seconds": [
+                      600
+                    ],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": [
+                      "human gate",
+                      "inconclusive validation",
+                      "repair limit",
+                      "authority change"
+                    ]
+                  },
+                  "handoff_states": [
+                    "complete",
+                    "failed",
+                    "blocked",
+                    "resumable"
+                  ],
+                  "auto_advance": true,
+                  "acceptance": [
+                    {
+                      "id": "G-J100-PRIMARY",
+                      "revision": "1",
+                      "type": "deterministic",
+                      "checker_role": "projection-checker",
+                      "inputs": [
+                        "src/law_firm_digital_twin/case_manifest.py",
+                        "src/law_firm_digital_twin/world.py",
+                        "tests/test_g2_contracts.py",
+                        "src/law_firm_digital_twin/case_compiler.py",
+                        "tests/test_projection_boundaries.py"
+                      ],
+                      "command": "python -m pytest -q tests/test_projection_boundaries.py",
+                      "rubric": "not-applicable",
+                      "evidence": "checks/g2-scale-v1/J100-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and gate passes",
+                        "fail_repairable": "bounded defect inside write scope",
+                        "fail_terminal": "protected invariant fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": [
+                        "J100"
+                      ],
+                      "revalidation_triggers": [
+                        "input digest",
+                        "core or adapter revision",
+                        "validator revision",
+                        "privacy or authority",
+                        "scope"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "J110",
+                  "title": "Implement evidence-family contracts",
+                  "objective": "Add channel, lineage, version, knowledge, and custody contracts at G2.",
+                  "non_goals": [
+                    "external data",
+                    "G3 rendering",
+                    "publication or deployment",
+                    "controller-state edits",
+                    "unrelated refactoring"
+                  ],
+                  "depends_on": [
+                    "J000"
+                  ],
+                  "dependency_digests": {
+                    "J000": "sha256:required-before-launch"
+                  },
+                  "inputs": [
+                    "src/law_firm_digital_twin/case_manifest.py",
+                    "src/law_firm_digital_twin/world.py",
+                    "src/law_firm_digital_twin/validators.py"
+                  ],
+                  "input_digests": {
+                    "src/law_firm_digital_twin/case_manifest.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/world.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/validators.py": "sha256:replace-before-launch"
+                  },
+                  "outputs": [
+                    "src/law_firm_digital_twin/evidence_contracts.py",
+                    "tests/test_evidence_family_contracts.py"
+                  ],
+                  "allowed_paths": [
+                    "src/law_firm_digital_twin/evidence_contracts.py",
+                    "tests/test_evidence_family_contracts.py"
+                  ],
+                  "prohibited_actions": [
+                    "publish",
+                    "deploy",
+                    "network or external access",
+                    "read private/",
+                    "real client data",
+                    "controller-state edits",
+                    "weaken gates"
+                  ],
+                  "owner_role": "evidence-contract-worker",
+                  "checker_role": "evidence-checker",
+                  "required_capabilities": [
+                    "typed contracts",
+                    "synthetic-only boundary",
+                    "deterministic replay",
+                    "bounded writes"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/evidence-contract-worker.json",
+                    "checks/g2-scale-v1/qualifications/evidence-checker.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J110:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J110.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J110.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J110",
+                  "retry_policy": {
+                    "classes": [
+                      "transient",
+                      "repairable_output",
+                      "stale_dependency",
+                      "authority_or_human",
+                      "security_privacy",
+                      "terminal_spec"
+                    ],
+                    "backoff_seconds": [
+                      600
+                    ],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": [
+                      "human gate",
+                      "inconclusive validation",
+                      "repair limit",
+                      "authority change"
+                    ]
+                  },
+                  "handoff_states": [
+                    "complete",
+                    "failed",
+                    "blocked",
+                    "resumable"
+                  ],
+                  "auto_advance": true,
+                  "acceptance": [
+                    {
+                      "id": "G-J110-PRIMARY",
+                      "revision": "1",
+                      "type": "deterministic",
+                      "checker_role": "evidence-checker",
+                      "inputs": [
+                        "src/law_firm_digital_twin/case_manifest.py",
+                        "src/law_firm_digital_twin/world.py",
+                        "src/law_firm_digital_twin/validators.py",
+                        "src/law_firm_digital_twin/evidence_contracts.py",
+                        "tests/test_evidence_family_contracts.py"
+                      ],
+                      "command": "python -m pytest -q tests/test_evidence_family_contracts.py",
+                      "rubric": "not-applicable",
+                      "evidence": "checks/g2-scale-v1/J110-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and gate passes",
+                        "fail_repairable": "bounded defect inside write scope",
+                        "fail_terminal": "protected invariant fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": [
+                        "J110"
+                      ],
+                      "revalidation_triggers": [
+                        "input digest",
+                        "core or adapter revision",
+                        "validator revision",
+                        "privacy or authority",
+                        "scope"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "J120",
+                  "title": "Implement persona state projections",
+                  "objective": "Add time-varying persona, relationship, organization, channel, memory, stress, and knowledge projections.",
+                  "non_goals": [
+                    "external data",
+                    "G3 rendering",
+                    "publication or deployment",
+                    "controller-state edits",
+                    "unrelated refactoring"
+                  ],
+                  "depends_on": [
+                    "J000"
+                  ],
+                  "dependency_digests": {
+                    "J000": "sha256:required-before-launch"
+                  },
+                  "inputs": [
+                    "src/law_firm_digital_twin/case_manifest.py",
+                    "src/law_firm_digital_twin/world.py"
+                  ],
+                  "input_digests": {
+                    "src/law_firm_digital_twin/case_manifest.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/world.py": "sha256:replace-before-launch"
+                  },
+                  "outputs": [
+                    "src/law_firm_digital_twin/persona_state.py",
+                    "tests/test_voice_representation_contracts.py"
+                  ],
+                  "allowed_paths": [
+                    "src/law_firm_digital_twin/persona_state.py",
+                    "tests/test_voice_representation_contracts.py"
+                  ],
+                  "prohibited_actions": [
+                    "publish",
+                    "deploy",
+                    "network or external access",
+                    "read private/",
+                    "real client data",
+                    "controller-state edits",
+                    "weaken gates"
+                  ],
+                  "owner_role": "persona-worker",
+                  "checker_role": "representation-checker",
+                  "required_capabilities": [
+                    "typed contracts",
+                    "synthetic-only boundary",
+                    "deterministic replay",
+                    "bounded writes"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/persona-worker.json",
+                    "checks/g2-scale-v1/qualifications/representation-checker.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J120:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J120.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J120.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J120",
+                  "retry_policy": {
+                    "classes": [
+                      "transient",
+                      "repairable_output",
+                      "stale_dependency",
+                      "authority_or_human",
+                      "security_privacy",
+                      "terminal_spec"
+                    ],
+                    "backoff_seconds": [
+                      600
+                    ],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": [
+                      "human gate",
+                      "inconclusive validation",
+                      "repair limit",
+                      "authority change"
+                    ]
+                  },
+                  "handoff_states": [
+                    "complete",
+                    "failed",
+                    "blocked",
+                    "resumable"
+                  ],
+                  "auto_advance": true,
+                  "acceptance": [
+                    {
+                      "id": "G-J120-PRIMARY",
+                      "revision": "1",
+                      "type": "deterministic",
+                      "checker_role": "representation-checker",
+                      "inputs": [
+                        "src/law_firm_digital_twin/case_manifest.py",
+                        "src/law_firm_digital_twin/world.py",
+                        "src/law_firm_digital_twin/persona_state.py",
+                        "tests/test_voice_representation_contracts.py"
+                      ],
+                      "command": "python -m pytest -q tests/test_voice_representation_contracts.py",
+                      "rubric": "not-applicable",
+                      "evidence": "checks/g2-scale-v1/J120-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and gate passes",
+                        "fail_repairable": "bounded defect inside write scope",
+                        "fail_terminal": "protected invariant fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": [
+                        "J120"
+                      ],
+                      "revalidation_triggers": [
+                        "input digest",
+                        "core or adapter revision",
+                        "validator revision",
+                        "privacy or authority",
+                        "scope"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "J130",
+                  "title": "Lock projection-evidence-persona integration",
+                  "objective": "Prove the three portable cores compose through one typed, least-privilege pipeline before any corpus fixture is built.",
+                  "non_goals": ["repair upstream source inside the integration job", "external data", "G3 rendering", "publication or deployment", "controller-state edits"],
+                  "depends_on": ["J100", "J110", "J120"],
+                  "dependency_digests": {
+                    "J100": "sha256:required-before-launch",
+                    "J110": "sha256:required-before-launch",
+                    "J120": "sha256:required-before-launch"
+                  },
+                  "inputs": [
+                    "src/law_firm_digital_twin/case_compiler.py",
+                    "src/law_firm_digital_twin/evidence_contracts.py",
+                    "src/law_firm_digital_twin/persona_state.py",
+                    "tests/test_projection_boundaries.py",
+                    "tests/test_evidence_family_contracts.py",
+                    "tests/test_voice_representation_contracts.py"
+                  ],
+                  "input_digests": {
+                    "src/law_firm_digital_twin/case_compiler.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/evidence_contracts.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/persona_state.py": "sha256:replace-before-launch",
+                    "tests/test_projection_boundaries.py": "sha256:replace-before-launch",
+                    "tests/test_evidence_family_contracts.py": "sha256:replace-before-launch",
+                    "tests/test_voice_representation_contracts.py": "sha256:replace-before-launch"
+                  },
+                  "outputs": ["tests/test_projection_integration.py"],
+                  "allowed_paths": ["tests/test_projection_integration.py"],
+                  "prohibited_actions": [
+                    "publish", "deploy", "network or external access", "read private/",
+                    "real client data", "controller-state edits", "weaken gates",
+                    "repair upstream module source"
+                  ],
+                  "owner_role": "projection-integration-worker",
+                  "checker_role": "independent-integration-checker",
+                  "required_capabilities": [
+                    "typed contract integration", "synthetic-only boundary",
+                    "deterministic replay", "hostile non-leakage testing"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/projection-integration-worker.json",
+                    "checks/g2-scale-v1/qualifications/independent-integration-checker.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J130:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J130.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J130.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J130",
+                  "retry_policy": {
+                    "classes": ["transient", "repairable_output", "stale_dependency", "authority_or_human", "security_privacy", "terminal_spec"],
+                    "backoff_seconds": [600],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": ["upstream contract mismatch", "human gate", "inconclusive validation", "repair limit", "authority change"]
+                  },
+                  "handoff_states": ["complete", "failed", "blocked", "resumable"],
+                  "auto_advance": true,
+                  "acceptance": [
+                    {
+                      "id": "G-J130-PRIMARY",
+                      "revision": "1",
+                      "type": "deterministic",
+                      "checker_role": "independent-integration-checker",
+                      "inputs": [
+                        "src/law_firm_digital_twin/case_compiler.py",
+                        "src/law_firm_digital_twin/evidence_contracts.py",
+                        "src/law_firm_digital_twin/persona_state.py",
+                        "tests/test_projection_integration.py"
+                      ],
+                      "command": "python -m pytest -q tests/test_projection_integration.py tests/test_projection_boundaries.py tests/test_evidence_family_contracts.py tests/test_voice_representation_contracts.py",
+                      "rubric": "not-applicable",
+                      "evidence": "checks/g2-scale-v1/J130-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and all three cores compose",
+                        "fail_repairable": "integration-test-only defect inside write scope",
+                        "fail_terminal": "protected invariant or upstream contract fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": ["J130"],
+                      "revalidation_triggers": [
+                        "J100, J110, or J120 digest", "core or adapter revision",
+                        "validator revision", "privacy or authority", "scope"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "title": "Ten-matter fixture",
+      "depends_on": [
+        "P1"
+      ],
+      "waves": [
+        {
+          "id": "P2-W1",
+          "title": "Ten-matter fixture",
+          "depends_on": [
+            "J130"
+          ],
+          "subwaves": [
+            {
+              "id": "P2-W1-S1",
+              "title": "Ten-matter fixture",
+              "depends_on": [
+                "J130"
+              ],
+              "jobs": [
+                {
+                  "id": "J200",
+                  "title": "Build ten sealed G2 blueprints",
+                  "objective": "Create exactly ten varied deterministic employment-defense blueprints and a public-safe corpus manifest.",
+                  "non_goals": [
+                    "external data",
+                    "G3 rendering",
+                    "publication or deployment",
+                    "controller-state edits",
+                    "unrelated refactoring"
+                  ],
+                  "depends_on": [
+                    "J130"
+                  ],
+                  "dependency_digests": {
+                    "J130": "sha256:required-before-launch"
+                  },
+                  "inputs": [
+                    "src/law_firm_digital_twin/case_manifest.py",
+                    "src/law_firm_digital_twin/case_compiler.py",
+                    "src/law_firm_digital_twin/evidence_contracts.py",
+                    "src/law_firm_digital_twin/persona_state.py"
+                  ],
+                  "input_digests": {
+                    "src/law_firm_digital_twin/case_manifest.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/case_compiler.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/evidence_contracts.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/persona_state.py": "sha256:replace-before-launch"
+                  },
+                  "outputs": [
+                    "generated/g2-scale-v1/blueprints.json",
+                    "generated/g2-scale-v1/corpus-manifest.json",
+                    "tests/test_population_fixture.py"
+                  ],
+                  "allowed_paths": [
+                    "generated/g2-scale-v1/blueprints.json",
+                    "generated/g2-scale-v1/corpus-manifest.json",
+                    "tests/test_population_fixture.py"
+                  ],
+                  "prohibited_actions": [
+                    "publish",
+                    "deploy",
+                    "network or external access",
+                    "read private/",
+                    "real client data",
+                    "controller-state edits",
+                    "weaken gates"
+                  ],
+                  "owner_role": "population-worker",
+                  "checker_role": "isolation-checker",
+                  "required_capabilities": [
+                    "typed contracts",
+                    "synthetic-only boundary",
+                    "deterministic replay",
+                    "bounded writes"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/population-worker.json",
+                    "checks/g2-scale-v1/qualifications/isolation-checker.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J200:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J200.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J200.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J200",
+                  "retry_policy": {
+                    "classes": [
+                      "transient",
+                      "repairable_output",
+                      "stale_dependency",
+                      "authority_or_human",
+                      "security_privacy",
+                      "terminal_spec"
+                    ],
+                    "backoff_seconds": [
+                      600
+                    ],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": [
+                      "human gate",
+                      "inconclusive validation",
+                      "repair limit",
+                      "authority change"
+                    ]
+                  },
+                  "handoff_states": [
+                    "complete",
+                    "failed",
+                    "blocked",
+                    "resumable"
+                  ],
+                  "auto_advance": true,
+                  "acceptance": [
+                    {
+                      "id": "G-J200-PRIMARY",
+                      "revision": "1",
+                      "type": "deterministic",
+                      "checker_role": "isolation-checker",
+                      "inputs": [
+                        "src/law_firm_digital_twin/case_manifest.py",
+                        "src/law_firm_digital_twin/case_compiler.py",
+                        "src/law_firm_digital_twin/evidence_contracts.py",
+                        "src/law_firm_digital_twin/persona_state.py",
+                        "generated/g2-scale-v1/blueprints.json",
+                        "generated/g2-scale-v1/corpus-manifest.json",
+                        "tests/test_population_fixture.py"
+                      ],
+                      "command": "python -m pytest -q tests/test_population_fixture.py",
+                      "rubric": "not-applicable",
+                      "evidence": "checks/g2-scale-v1/J200-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and gate passes",
+                        "fail_repairable": "bounded defect inside write scope",
+                        "fail_terminal": "protected invariant fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": [
+                        "J200"
+                      ],
+                      "revalidation_triggers": [
+                        "input digest",
+                        "core or adapter revision",
+                        "validator revision",
+                        "privacy or authority",
+                        "scope"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "J210",
+                  "title": "Implement corpus Berean audit",
+                  "objective": "Add manifest, projection, continuity, population, voice, identity isolation, complexity, and replay findings.",
+                  "non_goals": [
+                    "external data",
+                    "G3 rendering",
+                    "publication or deployment",
+                    "controller-state edits",
+                    "unrelated refactoring"
+                  ],
+                  "depends_on": [
+                    "J200"
+                  ],
+                  "dependency_digests": {
+                    "J200": "sha256:required-before-launch"
+                  },
+                  "inputs": [
+                    "src/law_firm_digital_twin/berean.py",
+                    "src/law_firm_digital_twin/validators.py",
+                    "src/law_firm_digital_twin/case_manifest.py",
+                    "generated/g2-scale-v1/corpus-manifest.json"
+                  ],
+                  "input_digests": {
+                    "src/law_firm_digital_twin/berean.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/validators.py": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/case_manifest.py": "sha256:replace-before-launch",
+                    "generated/g2-scale-v1/corpus-manifest.json": "sha256:replace-before-launch"
+                  },
+                  "outputs": [
+                    "src/law_firm_digital_twin/corpus_auditor.py",
+                    "tests/test_corpus_auditor.py"
+                  ],
+                  "allowed_paths": [
+                    "src/law_firm_digital_twin/corpus_auditor.py",
+                    "tests/test_corpus_auditor.py"
+                  ],
+                  "prohibited_actions": [
+                    "publish",
+                    "deploy",
+                    "network or external access",
+                    "read private/",
+                    "real client data",
+                    "controller-state edits",
+                    "weaken gates"
+                  ],
+                  "owner_role": "corpus-auditor-worker",
+                  "checker_role": "audit-checker",
+                  "required_capabilities": [
+                    "typed contracts",
+                    "synthetic-only boundary",
+                    "deterministic replay",
+                    "bounded writes"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/corpus-auditor-worker.json",
+                    "checks/g2-scale-v1/qualifications/audit-checker.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J210:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J210.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J210.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J210",
+                  "retry_policy": {
+                    "classes": [
+                      "transient",
+                      "repairable_output",
+                      "stale_dependency",
+                      "authority_or_human",
+                      "security_privacy",
+                      "terminal_spec"
+                    ],
+                    "backoff_seconds": [
+                      600
+                    ],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": [
+                      "human gate",
+                      "inconclusive validation",
+                      "repair limit",
+                      "authority change"
+                    ]
+                  },
+                  "handoff_states": [
+                    "complete",
+                    "failed",
+                    "blocked",
+                    "resumable"
+                  ],
+                  "auto_advance": true,
+                  "acceptance": [
+                    {
+                      "id": "G-J210-PRIMARY",
+                      "revision": "1",
+                      "type": "deterministic",
+                      "checker_role": "audit-checker",
+                      "inputs": [
+                        "src/law_firm_digital_twin/berean.py",
+                        "src/law_firm_digital_twin/validators.py",
+                        "src/law_firm_digital_twin/case_manifest.py",
+                        "src/law_firm_digital_twin/corpus_auditor.py",
+                        "tests/test_corpus_auditor.py"
+                      ],
+                      "command": "python -m pytest -q tests/test_corpus_auditor.py",
+                      "rubric": "not-applicable",
+                      "evidence": "checks/g2-scale-v1/J210-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and gate passes",
+                        "fail_repairable": "bounded defect inside write scope",
+                        "fail_terminal": "protected invariant fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": [
+                        "J210"
+                      ],
+                      "revalidation_triggers": [
+                        "input digest",
+                        "core or adapter revision",
+                        "validator revision",
+                        "privacy or authority",
+                        "scope"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "title": "Runtime adapter specification",
+      "depends_on": [
+        "P2"
+      ],
+      "waves": [
+        {
+          "id": "P3-W1",
+          "title": "Runtime adapter specification",
+          "depends_on": [
+            "J200",
+            "J210"
+          ],
+          "subwaves": [
+            {
+              "id": "P3-W1-S1",
+              "title": "Runtime adapter specification",
+              "depends_on": [
+                "J200",
+                "J210"
+              ],
+              "jobs": [
+                {
+                  "id": "J300",
+                  "title": "Specify Cursor runtime adapter",
+                  "objective": "Translate ready jobs into bounded Cursor tasks while the controller alone owns leases, receipts, budgets, and advance.",
+                  "non_goals": [
+                    "external data",
+                    "G3 rendering",
+                    "publication or deployment",
+                    "controller-state edits",
+                    "unrelated refactoring"
+                  ],
+                  "depends_on": [
+                    "J200",
+                    "J210"
+                  ],
+                  "dependency_digests": {
+                    "J200": "sha256:required-before-launch",
+                    "J210": "sha256:required-before-launch"
+                  },
+                  "inputs": [
+                    "campaigns/g2-scale-v1/campaign.json",
+                    "src/law_firm_digital_twin/case_manifest.py"
+                  ],
+                  "input_digests": {
+                    "campaigns/g2-scale-v1/campaign.json": "sha256:replace-before-launch",
+                    "src/law_firm_digital_twin/case_manifest.py": "sha256:replace-before-launch"
+                  },
+                  "outputs": [
+                    "campaigns/g2-scale-v1/runtime_adapters/cursor-v1.md",
+                    "campaigns/g2-scale-v1/checks/validate_cursor_adapter.py",
+                    "checks/g2-scale-v1/cursor-adapter-static.json"
+                  ],
+                  "allowed_paths": [
+                    "campaigns/g2-scale-v1/runtime_adapters/cursor-v1.md",
+                    "campaigns/g2-scale-v1/checks/validate_cursor_adapter.py",
+                    "checks/g2-scale-v1/cursor-adapter-static.json"
+                  ],
+                  "prohibited_actions": [
+                    "publish",
+                    "deploy",
+                    "network or external access",
+                    "read private/",
+                    "real client data",
+                    "controller-state edits",
+                    "weaken gates"
+                  ],
+                  "owner_role": "adapter-architect",
+                  "checker_role": "adapter-checker",
+                  "required_capabilities": [
+                    "typed contracts",
+                    "synthetic-only boundary",
+                    "deterministic replay",
+                    "bounded writes"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/adapter-architect.json",
+                    "checks/g2-scale-v1/qualifications/adapter-checker.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J300:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J300.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J300.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J300",
+                  "retry_policy": {
+                    "classes": [
+                      "transient",
+                      "repairable_output",
+                      "stale_dependency",
+                      "authority_or_human",
+                      "security_privacy",
+                      "terminal_spec"
+                    ],
+                    "backoff_seconds": [
+                      600
+                    ],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": [
+                      "human gate",
+                      "inconclusive validation",
+                      "repair limit",
+                      "authority change"
+                    ]
+                  },
+                  "handoff_states": [
+                    "complete",
+                    "failed",
+                    "blocked",
+                    "resumable"
+                  ],
+                  "auto_advance": true,
+                  "acceptance": [
+                    {
+                      "id": "G-J300-PRIMARY",
+                      "revision": "1",
+                      "type": "deterministic",
+                      "checker_role": "adapter-checker",
+                      "inputs": [
+                        "campaigns/g2-scale-v1/campaign.json",
+                        "src/law_firm_digital_twin/case_manifest.py",
+                        "campaigns/g2-scale-v1/runtime_adapters/cursor-v1.md",
+                        "campaigns/g2-scale-v1/checks/validate_cursor_adapter.py",
+                        "checks/g2-scale-v1/cursor-adapter-static.json"
+                      ],
+                      "command": "python campaigns/g2-scale-v1/checks/validate_cursor_adapter.py",
+                      "rubric": "not-applicable",
+                      "evidence": "checks/g2-scale-v1/J300-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and gate passes",
+                        "fail_repairable": "bounded defect inside write scope",
+                        "fail_terminal": "protected invariant fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": [
+                        "J300"
+                      ],
+                      "revalidation_triggers": [
+                        "input digest",
+                        "core or adapter revision",
+                        "validator revision",
+                        "privacy or authority",
+                        "scope"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "title": "Forward test and human launch boundary",
+      "depends_on": [
+        "P3"
+      ],
+      "waves": [
+        {
+          "id": "P4-W1",
+          "title": "Forward test and human launch boundary",
+          "depends_on": [
+            "J300"
+          ],
+          "subwaves": [
+            {
+              "id": "P4-W1-S1",
+              "title": "Forward test and human launch boundary",
+              "depends_on": [
+                "J300"
+              ],
+              "jobs": [
+                {
+                  "id": "J400",
+                  "title": "Run clean forward test",
+                  "objective": "Prove replay, leakage resistance, scope, privacy, and protected G2 compatibility.",
+                  "non_goals": [
+                    "external data",
+                    "G3 rendering",
+                    "publication or deployment",
+                    "controller-state edits",
+                    "unrelated refactoring"
+                  ],
+                  "depends_on": [
+                    "J200",
+                    "J210",
+                    "J300"
+                  ],
+                  "dependency_digests": {
+                    "J200": "sha256:required-before-launch",
+                    "J210": "sha256:required-before-launch",
+                    "J300": "sha256:required-before-launch"
+                  },
+                  "inputs": [
+                    "src/",
+                    "tests/",
+                    "campaigns/g2-scale-v1/",
+                    "generated/g2-scale-v1/"
+                  ],
+                  "input_digests": {
+                    "src/": "sha256:replace-before-launch",
+                    "tests/": "sha256:replace-before-launch",
+                    "campaigns/g2-scale-v1/": "sha256:replace-before-launch",
+                    "generated/g2-scale-v1/": "sha256:replace-before-launch"
+                  },
+                  "outputs": [
+                    "checks/g2-scale-v1/forward-test.json"
+                  ],
+                  "allowed_paths": [
+                    "checks/g2-scale-v1/forward-test.json"
+                  ],
+                  "prohibited_actions": [
+                    "publish",
+                    "deploy",
+                    "network or external access",
+                    "read private/",
+                    "real client data",
+                    "controller-state edits",
+                    "weaken gates"
+                  ],
+                  "owner_role": "forward-test-runner",
+                  "checker_role": "fresh-eyes-checker",
+                  "required_capabilities": [
+                    "typed contracts",
+                    "synthetic-only boundary",
+                    "deterministic replay",
+                    "bounded writes"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/forward-test-runner.json",
+                    "checks/g2-scale-v1/qualifications/fresh-eyes-checker.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J400:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J400.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J400.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J400",
+                  "retry_policy": {
+                    "classes": [
+                      "transient",
+                      "repairable_output",
+                      "stale_dependency",
+                      "authority_or_human",
+                      "security_privacy",
+                      "terminal_spec"
+                    ],
+                    "backoff_seconds": [
+                      600
+                    ],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": [
+                      "human gate",
+                      "inconclusive validation",
+                      "repair limit",
+                      "authority change"
+                    ]
+                  },
+                  "handoff_states": [
+                    "complete",
+                    "failed",
+                    "blocked",
+                    "resumable"
+                  ],
+                  "auto_advance": true,
+                  "acceptance": [
+                    {
+                      "id": "G-J400-PRIMARY",
+                      "revision": "1",
+                      "type": "independent",
+                      "checker_role": "fresh-eyes-checker",
+                      "inputs": [
+                        "src/",
+                        "tests/",
+                        "campaigns/g2-scale-v1/",
+                        "generated/g2-scale-v1/",
+                        "checks/g2-scale-v1/forward-test.json"
+                      ],
+                      "command": "python -m pytest -q",
+                      "rubric": "Fresh-eyes rubric: correctness, non-leakage, scope, traceability, stops.",
+                      "evidence": "checks/g2-scale-v1/J400-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and gate passes",
+                        "fail_repairable": "bounded defect inside write scope",
+                        "fail_terminal": "protected invariant fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": [
+                        "J400"
+                      ],
+                      "revalidation_triggers": [
+                        "input digest",
+                        "core or adapter revision",
+                        "validator revision",
+                        "privacy or authority",
+                        "scope"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "J410",
+                  "title": "Prepare launch decision packet",
+                  "objective": "Reconcile receipts, budgets, leases, stops, qualifications, and gates without authorizing launch.",
+                  "non_goals": [
+                    "external data",
+                    "G3 rendering",
+                    "publication or deployment",
+                    "controller-state edits",
+                    "unrelated refactoring"
+                  ],
+                  "depends_on": [
+                    "J400"
+                  ],
+                  "dependency_digests": {
+                    "J400": "sha256:required-before-launch"
+                  },
+                  "inputs": [
+                    "checks/g2-scale-v1/forward-test.json",
+                    "campaigns/g2-scale-v1/campaign.json"
+                  ],
+                  "input_digests": {
+                    "checks/g2-scale-v1/forward-test.json": "sha256:replace-before-launch",
+                    "campaigns/g2-scale-v1/campaign.json": "sha256:replace-before-launch"
+                  },
+                  "outputs": [
+                    "checks/g2-scale-v1/final-verification.json"
+                  ],
+                  "allowed_paths": [
+                    "checks/g2-scale-v1/final-verification.json"
+                  ],
+                  "prohibited_actions": [
+                    "publish",
+                    "deploy",
+                    "network or external access",
+                    "read private/",
+                    "real client data",
+                    "controller-state edits",
+                    "weaken gates"
+                  ],
+                  "owner_role": "campaign-foreman",
+                  "checker_role": "human-campaign-owner",
+                  "required_capabilities": [
+                    "typed contracts",
+                    "synthetic-only boundary",
+                    "deterministic replay",
+                    "bounded writes"
+                  ],
+                  "qualification_evidence": [
+                    "checks/g2-scale-v1/qualifications/campaign-foreman.json",
+                    "checks/g2-scale-v1/qualifications/human-campaign-owner.json"
+                  ],
+                  "idempotency_key": "g2-scale-v1:J410:r1",
+                  "lease_minutes": 45,
+                  "heartbeat_minutes": 5,
+                  "max_attempts": 2,
+                  "repair_limit": 1,
+                  "max_transient_retries": 1,
+                  "cost_ceiling": 10,
+                  "time_ceiling_minutes": 90,
+                  "context_ceiling_tokens": 24000,
+                  "output_ceiling_mb": 20,
+                  "checkpoint": ".campaign-state/g2-scale-v1/J410.json",
+                  "receipt": ".campaign-state/g2-scale-v1/J410.receipts.jsonl",
+                  "durability_check": "python campaigns/g2-scale-v1/checks/verify_receipt_durability.py J410",
+                  "retry_policy": {
+                    "classes": [
+                      "transient",
+                      "repairable_output",
+                      "stale_dependency",
+                      "authority_or_human",
+                      "security_privacy",
+                      "terminal_spec"
+                    ],
+                    "backoff_seconds": [
+                      600
+                    ],
+                    "same_state_deterministic_retry": false
+                  },
+                  "escalation": {
+                    "owner": "campaign-owner",
+                    "conditions": [
+                      "human gate",
+                      "inconclusive validation",
+                      "repair limit",
+                      "authority change"
+                    ]
+                  },
+                  "handoff_states": [
+                    "complete",
+                    "failed",
+                    "blocked",
+                    "resumable"
+                  ],
+                  "auto_advance": false,
+                  "acceptance": [
+                    {
+                      "id": "G-J410-PRIMARY",
+                      "revision": "1",
+                      "type": "human",
+                      "checker_role": "human-campaign-owner",
+                      "inputs": [
+                        "checks/g2-scale-v1/forward-test.json",
+                        "campaigns/g2-scale-v1/campaign.json",
+                        "checks/g2-scale-v1/final-verification.json"
+                      ],
+                      "command": "not-authorized-human-gate",
+                      "rubric": "not-applicable",
+                      "evidence": "checks/g2-scale-v1/J410-primary.json",
+                      "result_semantics": {
+                        "pass": "required evidence exists and gate passes",
+                        "fail_repairable": "bounded defect inside write scope",
+                        "fail_terminal": "protected invariant fails",
+                        "blocked_human": "named human receipt required",
+                        "inconclusive": "evidence missing or stale"
+                      },
+                      "affects": [
+                        "J410"
+                      ],
+                      "revalidation_triggers": [
+                        "input digest",
+                        "core or adapter revision",
+                        "validator revision",
+                        "privacy or authority",
+                        "scope"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "stop_conditions": [
+    {
+      "code": "user_interrupt",
+      "detection": "controller observes user interrupt",
+      "evidence": ".campaign-state/g2-scale-v1/stops/user_interrupt.json",
+      "shutdown": "checkpoint, block effects, preserve evidence, stop",
+      "release_leases": true,
+      "recovery_owner": "campaign-owner",
+      "resume_preconditions": [
+        "affirmative resume"
+      ]
+    },
+    {
+      "code": "budget_exhausted",
+      "detection": "hard budget reached",
+      "evidence": ".campaign-state/g2-scale-v1/stops/budget_exhausted.json",
+      "shutdown": "checkpoint, block effects, preserve evidence, stop",
+      "release_leases": true,
+      "recovery_owner": "campaign-owner",
+      "resume_preconditions": [
+        "approved revision and budget"
+      ]
+    },
+    {
+      "code": "authority_boundary",
+      "detection": "effect outside authority",
+      "evidence": ".campaign-state/g2-scale-v1/stops/authority_boundary.json",
+      "shutdown": "checkpoint, block effects, preserve evidence, stop",
+      "release_leases": true,
+      "recovery_owner": "campaign-owner",
+      "resume_preconditions": [
+        "reviewed resolution under unchanged authority"
+      ]
+    },
+    {
+      "code": "human_gate_required",
+      "detection": "human receipt missing",
+      "evidence": ".campaign-state/g2-scale-v1/stops/human_gate_required.json",
+      "shutdown": "checkpoint, block effects, preserve evidence, stop",
+      "release_leases": true,
+      "recovery_owner": "campaign-owner",
+      "resume_preconditions": [
+        "signed decision receipt"
+      ]
+    },
+    {
+      "code": "repeated_failure",
+      "detection": "attempt or repair limit reached",
+      "evidence": ".campaign-state/g2-scale-v1/stops/repeated_failure.json",
+      "shutdown": "checkpoint, block effects, preserve evidence, stop",
+      "release_leases": true,
+      "recovery_owner": "campaign-owner",
+      "resume_preconditions": [
+        "reviewed resolution under unchanged authority"
+      ]
+    },
+    {
+      "code": "gold_standard_failure",
+      "detection": "protected standard fails",
+      "evidence": ".campaign-state/g2-scale-v1/stops/gold_standard_failure.json",
+      "shutdown": "checkpoint, block effects, preserve evidence, stop",
+      "release_leases": true,
+      "recovery_owner": "campaign-owner",
+      "resume_preconditions": [
+        "reviewed resolution under unchanged authority"
+      ]
+    },
+    {
+      "code": "security_or_privacy",
+      "detection": "secret, private, real-data, rights, or security signal",
+      "evidence": ".campaign-state/g2-scale-v1/stops/security_or_privacy.json",
+      "shutdown": "fail closed and preserve non-sensitive evidence",
+      "release_leases": true,
+      "recovery_owner": "security-owner",
+      "resume_preconditions": [
+        "reviewed resolution under unchanged authority"
+      ]
+    },
+    {
+      "code": "dependency_stale",
+      "detection": "dependency digest mismatch",
+      "evidence": ".campaign-state/g2-scale-v1/stops/dependency_stale.json",
+      "shutdown": "checkpoint, block effects, preserve evidence, stop",
+      "release_leases": true,
+      "recovery_owner": "campaign-controller",
+      "resume_preconditions": [
+        "reviewed resolution under unchanged authority"
+      ]
+    },
+    {
+      "code": "write_conflict",
+      "detection": "overlapping lease or user change",
+      "evidence": ".campaign-state/g2-scale-v1/stops/write_conflict.json",
+      "shutdown": "checkpoint, block effects, preserve evidence, stop",
+      "release_leases": true,
+      "recovery_owner": "campaign-controller",
+      "resume_preconditions": [
+        "reviewed resolution under unchanged authority"
+      ]
+    },
+    {
+      "code": "validation_inconclusive",
+      "detection": "required gate inconclusive",
+      "evidence": ".campaign-state/g2-scale-v1/stops/validation_inconclusive.json",
+      "shutdown": "checkpoint, block effects, preserve evidence, stop",
+      "release_leases": true,
+      "recovery_owner": "campaign-owner",
+      "resume_preconditions": [
+        "reviewed resolution under unchanged authority"
+      ]
+    }
+  ]
+}

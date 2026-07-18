@@ -1,0 +1,5 @@
+{
+  "schema_version": "1.0.0",
+  "authority_boundary": "Empty means no external source is admitted. A candidate receipt cannot authorize use; only a validated approved receipt may do so.",
+  "receipts": []
+}
