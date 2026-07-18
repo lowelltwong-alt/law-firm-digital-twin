@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://law-firm-digital-twin.invalid/schemas/operational-router-process-v1.schema.json",
+  "title": "LFDT operational router same-user subprocess protocol",
+  "oneOf": [{"$ref": "#/$defs/request"}, {"$ref": "#/$defs/success"}, {"$ref": "#/$defs/blocked"}],
+  "$defs": {
+    "identifier": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,159}$"},
+    "identifierArray": {"type": "array", "maxItems": 32, "items": {"$ref": "#/$defs/identifier"}},
+    "request": {
+      "type": "object", "additionalProperties": false,
+      "required": ["protocol_revision", "request_id", "fixture_id", "capability_id", "requester_role_id", "data_class", "effect_class", "source_admission_receipt_ids", "reuse_release_receipt_ids", "authority_artifact_ids", "prerequisite_receipt_ids", "requested_adapter", "synthetic_only", "external_io"],
+      "properties": {
+        "protocol_revision": {"const": "lfdt-operational-router-process-v1"},
+        "request_id": {"$ref": "#/$defs/identifier"},
+        "fixture_id": {"const": "employment-green-g2-v1"},
+        "capability_id": {"$ref": "#/$defs/identifier"},
+        "requester_role_id": {"$ref": "#/$defs/identifier"},
+        "data_class": {"enum": ["synthetic", "public", "private", "client"]},
+        "effect_class": {"enum": ["advisory_only", "simulation_planning_only", "external_write", "legal_decision", "financial_posting"]},
+        "source_admission_receipt_ids": {"$ref": "#/$defs/identifierArray"},
+        "reuse_release_receipt_ids": {"$ref": "#/$defs/identifierArray"},
+        "authority_artifact_ids": {"$ref": "#/$defs/identifierArray"},
+        "prerequisite_receipt_ids": {"$ref": "#/$defs/identifierArray"},
+        "requested_adapter": {"oneOf": [{"$ref": "#/$defs/identifier"}, {"type": "null"}]},
+        "synthetic_only": {"type": "boolean"}, "external_io": {"type": "boolean"}
+      }
+    },
+    "decision": {
+      "type": "object", "additionalProperties": false,
+      "required": ["request_id", "request_hash", "status", "worker_role_id", "checker_role_id", "reason_codes", "required_human_gates", "registry_commitment", "authority_ledger_commitment", "mesh_revision", "proposal_only", "external_effects", "canonical_admission"],
+      "properties": {
+        "request_id": {"type": "string", "pattern": "^REQREF-[0-9a-f]{20}$"},
+        "request_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "status": {"enum": ["routed", "blocked", "human_gate_required"]},
+        "worker_role_id": {"type": ["string", "null"]}, "checker_role_id": {"type": ["string", "null"]},
+        "reason_codes": {"type": "array", "items": {"type": "string"}},
+        "required_human_gates": {"type": "array", "items": {"type": "string"}},
+        "registry_commitment": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "authority_ledger_commitment": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "mesh_revision": {"const": "operational-expert-mesh-g2-v1"},
+        "proposal_only": {"const": true}, "external_effects": {"const": false}, "canonical_admission": {"const": false}
+      }
+    },
+    "receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["protocol_revision", "service_revision", "fixture_id", "fixture_commitment", "environment_commitment", "source_revision_commitment", "schema_commitment", "request_commitment", "decision_commitment", "worker_transport_attested", "physical_identity_isolation_qualified", "canonical_activation_authorized"],
+      "properties": {
+        "protocol_revision": {"const": "lfdt-operational-router-process-v1"},
+        "service_revision": {"const": "lfdt-operational-router-service-g2-v2"},
+        "fixture_id": {"const": "employment-green-g2-v1"},
+        "fixture_commitment": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "environment_commitment": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "source_revision_commitment": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "schema_commitment": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "request_commitment": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "decision_commitment": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "worker_transport_attested": {"const": false},
+        "physical_identity_isolation_qualified": {"const": false},
+        "canonical_activation_authorized": {"const": false}
+      }
+    },
+    "success": {
+      "type": "object", "additionalProperties": false,
+      "required": ["protocol_revision", "status", "decision", "receipt", "error_code"],
+      "properties": {
+        "protocol_revision": {"const": "lfdt-operational-router-process-v1"}, "status": {"const": "ok"},
+        "decision": {"$ref": "#/$defs/decision"}, "receipt": {"$ref": "#/$defs/receipt"}, "error_code": {"type": "null"}
+      }
+    },
+    "blocked": {
+      "type": "object", "additionalProperties": false,
+      "required": ["protocol_revision", "status", "decision", "receipt", "error_code"],
+      "properties": {
+        "protocol_revision": {"const": "lfdt-operational-router-process-v1"}, "status": {"const": "blocked"},
+        "decision": {"type": "null"}, "receipt": {"type": "null"},
+        "error_code": {"enum": ["fixture_unknown", "malformed_json", "protocol_revision_invalid", "request_fields_invalid", "request_not_object", "request_too_large", "request_types_invalid", "request_value_invalid", "service_failure", "service_timeout", "service_crash", "response_invalid"]}
+      }
+    }
+  }
+}
