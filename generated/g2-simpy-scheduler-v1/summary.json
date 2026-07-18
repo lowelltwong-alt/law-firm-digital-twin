@@ -1,0 +1,60 @@
+{
+  "adapter_revision": "simpy-scheduler-adapter-g2-v1",
+  "authority": {
+    "branch": false,
+    "canonical_time": false,
+    "kernel_acceptance": false,
+    "outcome": false,
+    "world_truth": false
+  },
+  "fidelity": "G2",
+  "nonjoinable": true,
+  "normalization_revision": "simulation-schedule-normalization-g2-v1",
+  "proposal_count": 92,
+  "qualification": {
+    "capacity_validation": true,
+    "deterministic_replay": true,
+    "kernel_noninterference": true,
+    "reference_equivalence": true
+  },
+  "resource_class_counts": {
+    "billing_operations": 12,
+    "carrier_review": 4,
+    "conflicts_operations": 4,
+    "docketing_operations": 4,
+    "independent_deadline_review": 4,
+    "intake_operations": 4,
+    "litigation_support": 16,
+    "responsible_counsel": 44
+  },
+  "runtime": {
+    "package": "simpy",
+    "version": "4.1.2"
+  },
+  "scenario_count": 4,
+  "scheduler_core_revision": "simulation-scheduler-core-g2-v1",
+  "scheduling_class_counts": {
+    "authority_review_work": 4,
+    "billing_appeal_work": 4,
+    "billing_submission_work": 4,
+    "boundary_probe_work": 8,
+    "carrier_audit_work": 4,
+    "closeout_work": 4,
+    "closure_work": 4,
+    "collection_work": 4,
+    "conflicts_work": 4,
+    "deadline_calculation_work": 4,
+    "deadline_verification_work": 4,
+    "deposition_support_work": 4,
+    "evidence_review_work": 4,
+    "expert_coordination_work": 4,
+    "intake_work": 4,
+    "matter_opening_work": 4,
+    "payment_processing_work": 4,
+    "preservation_work": 4,
+    "production_work": 4,
+    "resolution_work": 4,
+    "timekeeping_work": 8
+  },
+  "schema": "g2_simpy_scheduler_public_summary_v1"
+}

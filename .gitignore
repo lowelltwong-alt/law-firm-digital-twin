@@ -1,0 +1,26 @@
+# BEGIN PERSONAL REPO PRIVACY BOUNDARY
+/private/
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.p12
+**/*.pfx
+**/id_rsa
+**/id_ed25519
+# DAD repo-local transport state; never publish event payloads.
+/.digital-asset/exceptions/outbox.jsonl
+/.digital-asset/exceptions/inbox.jsonl
+/.digital-asset/exceptions/archive.jsonl
+# END PERSONAL REPO PRIVACY BOUNDARY
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.campaign-state/
+/skill-build/
+/skill-final/
+/skill-release/
+/skill-candidate/
+/skill-approved/
+/skill-install/

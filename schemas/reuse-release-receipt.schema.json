@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://law-firm-digital-twin.local/schemas/reuse-release-receipt.schema.json",
+  "title": "Law Firm Digital Twin reuse-release receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id", "asset_id", "source_repo_id", "source_commit",
+    "source_paths", "classification", "license_posture", "allowed_transform",
+    "prohibited_material", "approved_by", "approved_at", "review_status"
+  ],
+  "properties": {
+    "receipt_id": {"type": "string", "pattern": "^RRR-"},
+    "asset_id": {"type": "string", "minLength": 1},
+    "source_repo_id": {"type": "string", "minLength": 1},
+    "source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "source_paths": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "classification": {"type": "string", "enum": ["reuse", "wrap", "rebuild", "prohibit"]},
+    "license_posture": {"type": "string", "enum": ["owned", "compatible", "restricted", "prohibited", "unknown_hold"]},
+    "allowed_transform": {"type": "string", "minLength": 1},
+    "prohibited_material": {"type": "array", "items": {"type": "string"}},
+    "approved_by": {"type": "string", "const": "Lowell"},
+    "approved_at": {"type": "string", "format": "date-time"},
+    "review_status": {"type": "string", "enum": ["approved", "rejected", "expired"]}
+  }
+}

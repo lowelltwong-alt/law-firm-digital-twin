@@ -1,0 +1,44 @@
+{
+  "asset_status_counts": {
+    "deferred": 1,
+    "existing_partial": 9,
+    "proposed": 4
+  },
+  "baseline_state": "adopted_frozen_design_c_v1",
+  "contains_canary_or_key": false,
+  "contains_case_identifiers": false,
+  "contains_source_rows": false,
+  "current_system_containment_state": "incomplete_surfaces",
+  "decision_status_counts": {
+    "adopted": 7,
+    "delegated": 1,
+    "pending": 4
+  },
+  "g0c_loop_count": 5,
+  "nonjoinable": true,
+  "obligation_status_counts": {
+    "binding_existing": 10,
+    "deferred": 3
+  },
+  "operating_surface_count": 10,
+  "operating_surface_state_counts": {
+    "not_created": 10
+  },
+  "optional_runtime_qualification_count": 1,
+  "qualification_boundaries": {
+    "backup_location_selected": false,
+    "canonical_runtime_root_selected": true,
+    "canonical_storage_authorized": false,
+    "external_effects": false,
+    "system_containment_qualified": false,
+    "unattended_execution_authorized": false,
+    "worker_boundary_validated": false
+  },
+  "scanner_mutation_evidence": {
+    "encoding_variant_count": 6,
+    "independent_checker_passed": true,
+    "mutation_count": 80,
+    "surface_count": 10
+  },
+  "schema": "design_c_g0c_public_readiness_v1"
+}

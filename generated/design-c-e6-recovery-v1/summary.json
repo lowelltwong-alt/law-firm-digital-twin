@@ -1,0 +1,31 @@
+{
+  "commit_protocol": {
+    "accepted_once": true,
+    "command_count": 1,
+    "duplicate_replay": true,
+    "event_count": 1,
+    "outbox_count": 1,
+    "precommit_fault_point_count": 5,
+    "real_process_crash_tests": 7
+  },
+  "contains_case_identifiers": false,
+  "contains_commitments": false,
+  "contains_financial_source_rows": false,
+  "finance_journal": {
+    "accounts_receivable_cents": 0,
+    "all_stages_accepted": true,
+    "balanced": true,
+    "lifecycle_stage_count": 5,
+    "real_process_crash_tests": 2
+  },
+  "nonjoinable": true,
+  "qualification_boundaries": {
+    "canonical_store": false,
+    "external_delivery": false,
+    "h10_storage_approved": false,
+    "lease_protocol": false,
+    "unattended_execution": false
+  },
+  "schema": "design_c_e6_public_recovery_summary_v1",
+  "scope": "ephemeral_noncanonical_reference"
+}
