@@ -1,10 +1,10 @@
 # Visibility And Release
 
-Status: `LOCAL_PRIVATE_NOT_RELEASE_APPROVED`
+Status: `PUBLIC_SOURCE_VISIBLE_RELEASE_APPROVED`
 
-Law Firm Digital Twin is intended to become a public-facing build, but public release is not yet approved.
+Lowell approved the initial public, source-visible GitHub release on 2026-07-18 through the explicit `push and merge` instruction. Approval record: `USER-2026-07-18-PUBLIC-GITHUB-PUSH-AND-MERGE`.
 
-Before publication, the tracked candidate must pass:
+The initial tracked candidate was reviewed against:
 
 - tracked-file inventory and release allowlist;
 - private workspace and ignore verification;
@@ -15,3 +15,4 @@ Before publication, the tracked candidate must pass:
 - build/test reproduction from clean checkout;
 - named Lowell approval for public release.
 
+This approval covers the synthetic G0-G2 prototype and public governance artifacts only. It does not authorize real client data, external legal-data ingestion, PACER purchases, Gmail access, production legal services, G3+ fidelity, unattended execution, or reuse of gated assets without separate receipts.
