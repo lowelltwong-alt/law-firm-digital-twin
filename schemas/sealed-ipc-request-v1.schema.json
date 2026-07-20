@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:lfdt:schema:sealed-ipc-request:v1",
+  "title": "Sealed IPC Request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "revision", "capability", "operation", "operating_matter_id", "request_commitment", "nonce", "idempotency_key", "contains_payload", "canonical_write_requested", "external_effect_requested"],
+  "properties": {
+    "request_id": {"type": "string", "pattern": "^IPCREQ-[0-9a-f]{24}$"},
+    "revision": {"const": "sealed-ipc-core-g0-v1"},
+    "capability": {"$ref": "sealed-ipc-capability-v1.schema.json"},
+    "operation": {"enum": ["SubmitIngressCommitment", "RequestOperatingProjection", "AcknowledgeOutboxItem"]},
+    "operating_matter_id": {"type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$"},
+    "request_commitment": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "nonce": {"type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$"},
+    "idempotency_key": {"type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$"},
+    "contains_payload": {"const": false},
+    "canonical_write_requested": {"const": false},
+    "external_effect_requested": {"const": false}
+  }
+}

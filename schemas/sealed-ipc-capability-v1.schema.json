@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:lfdt:schema:sealed-ipc-capability:v1",
+  "title": "Sealed IPC Capability v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["capability_id", "revision", "principal_commitment", "operating_matter_id", "allowed_operation", "issued_tick", "expires_tick", "nonce", "idempotency_key", "auth_tag", "contains_raw_principal", "contains_path", "contains_secret", "contains_payload"],
+  "properties": {
+    "capability_id": {"type": "string", "pattern": "^IPCCAP-[0-9a-f]{24}$"},
+    "revision": {"const": "sealed-ipc-core-g0-v1"},
+    "principal_commitment": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "operating_matter_id": {"type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$"},
+    "allowed_operation": {"enum": ["SubmitIngressCommitment", "RequestOperatingProjection", "AcknowledgeOutboxItem"]},
+    "issued_tick": {"type": "integer", "minimum": 0},
+    "expires_tick": {"type": "integer", "minimum": 1},
+    "nonce": {"type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$"},
+    "idempotency_key": {"type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$"},
+    "auth_tag": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "contains_raw_principal": {"const": false},
+    "contains_path": {"const": false},
+    "contains_secret": {"const": false},
+    "contains_payload": {"const": false}
+  }
+}
