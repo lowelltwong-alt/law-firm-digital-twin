@@ -1,0 +1,52 @@
+{
+  "aggregate_counts": {
+    "detected_mutation_count": 22,
+    "live_pipe_api_call_count": 0,
+    "max_frame_bytes": 65536,
+    "mutation_count": 22,
+    "operation_count": 3,
+    "schema_count": 3
+  },
+  "contains_capability_or_request_ids": false,
+  "contains_pipe_name": false,
+  "contains_principal_commitments": false,
+  "contains_runtime_root": false,
+  "contains_secrets": false,
+  "contains_sids": false,
+  "contains_signing_key": false,
+  "contract_revisions": {
+    "independent_checker": "windows-secure-pipe-checker-g0-v1",
+    "portable_core": "sealed-ipc-core-g0-v1",
+    "primary_validator": "sealed-ipc-validator-g0-v1",
+    "windows_adapter": "windows-secure-pipe-adapter-g0-v1"
+  },
+  "nonjoinable": true,
+  "qualification_boundaries": {
+    "c020_gap_ipc_still_blocking": true,
+    "canonical_activation_authorized": false,
+    "external_effects": false,
+    "host_mutation_authorized": false,
+    "implementation_present": true,
+    "live_os_probe_pending": true,
+    "live_pipe_created": false,
+    "physical_isolation_qualified": false,
+    "static_and_fake_backend_qualified": true,
+    "unattended_execution_authorized": false
+  },
+  "schema": "design_c_c023_secure_ipc_public_summary_v1",
+  "validated_contracts": {
+    "all_mutations_detected": true,
+    "all_schema_files_present": true,
+    "bounded_canonical_framing_required": true,
+    "capability_signature_and_authority_bound": true,
+    "client_token_impersonation_and_exact_sid_check_required": true,
+    "first_instance_and_remote_denial_flags_pinned": true,
+    "generic_worker_denial_with_sealed_reason": true,
+    "independent_checker_passed": true,
+    "primary_validator_passed": true,
+    "principal_commitment_bound_to_authenticated_sid": true,
+    "protected_explicit_dacl_required": true,
+    "replay_and_idempotency_ledger_present": true,
+    "revert_to_self_and_handle_cleanup_required": true
+  }
+}
