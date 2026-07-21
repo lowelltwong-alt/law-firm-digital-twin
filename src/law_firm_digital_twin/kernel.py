@@ -2,10 +2,21 @@ from __future__ import annotations
 
 from dataclasses import asdict
 from decimal import Decimal
+import json
+from pathlib import Path
 
 from .factory import SyntheticMatter
 from .hashio import digest
 from .models import Command, Event, Projection, Route
+from .operational_mesh_contracts import (
+    OPERATIONAL_MESH_REVISION,
+    OperationalAuthorityLedger,
+    OperationalRoutingDecision,
+    OperationalWorkRequest,
+    VerifiedOperationalRecord,
+)
+from .operational_mesh_registry import build_operational_role_registry
+from .operational_mesh_router import _build_kernel_operational_router
 
 
 class GateError(ValueError):
@@ -23,6 +34,9 @@ class WorldKernel:
         self.projection = Projection(route=route.value)
         self.authority: set[str] = {"receive_referral"}
         self.knowledge: set[str] = {"referral_summary"}
+        self.__operational_router = _build_kernel_operational_router(
+            self._operational_authority_ledger
+        )
 
     def submit(self, command: Command) -> Event:
         missing_authority = set(command.requires_authority) - self.authority
@@ -136,3 +150,67 @@ class WorldKernel:
     def projection_hash(self) -> str:
         return digest(self.projection)
 
+    @property
+    def operational_matter_commitment(self) -> str:
+        return "sha256:" + digest(
+            {
+                "run_id": self.run_id,
+                "world_id": self.matter.world_id,
+                "matter_id": self.matter.matter_id,
+            }
+        )
+
+    def route_operational_work(
+        self,
+        request: OperationalWorkRequest,
+    ) -> OperationalRoutingDecision:
+        return self.__operational_router.route(request)
+
+    def _operational_authority_ledger(self) -> OperationalAuthorityLedger:
+        records: list[VerifiedOperationalRecord] = []
+        registry_path = (
+            Path(__file__).resolve().parents[2]
+            / "registry"
+            / "source-admission-receipts.json"
+        )
+        admitted_by_id: dict[str, dict[str, object]] = {}
+        if registry_path.exists():
+            payload = json.loads(registry_path.read_text(encoding="utf-8"))
+            admitted_by_id = {
+                str(item["receipt_id"]): item
+                for item in payload.get("receipts", ())
+                if item.get("license_posture") == "admitted"
+                and item.get("review_status") == "approved"
+            }
+        for receipt in self.matter.rule_pack.source_receipts:
+            admitted = admitted_by_id.get(receipt.source_id)
+            if admitted is None:
+                continue
+            source_hash = receipt.source_hash
+            if not source_hash.startswith("sha256:"):
+                source_hash = "sha256:" + source_hash
+            if admitted.get("source_hash") != source_hash:
+                continue
+            records.append(
+                VerifiedOperationalRecord(
+                    record_id=receipt.source_id,
+                    record_kind="source_admission",
+                    issuer_id="kernel.rule_pack_registry.v1",
+                    issuer_class="kernel",
+                    subject_matter_commitment="global",
+                    scope_capability_ids=("*",),
+                    valid_from_revision=OPERATIONAL_MESH_REVISION,
+                    valid_through_revision=OPERATIONAL_MESH_REVISION,
+                    asset_digest=source_hash,
+                    source_class="public",
+                    approved=True,
+                )
+            )
+        role_ids = tuple(role.role_id for role in build_operational_role_registry())
+        return OperationalAuthorityLedger(
+            ledger_id=f"OP-LEDGER-{digest(tuple(record.record_hash for record in records))[:18]}",
+            issuer_id="kernel.operational_authority_registry.v1",
+            known_matter_commitments=(self.operational_matter_commitment,),
+            known_requester_role_ids=role_ids,
+            records=tuple(records),
+        )

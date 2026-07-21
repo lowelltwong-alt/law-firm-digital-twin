@@ -1,0 +1,141 @@
+{
+  "schema_version": "dad.task_local_agent_mesh_manifest.v1",
+  "mesh_id": "dad:agent-mesh:lfdt-operational-expert-mesh",
+  "task_id": "lfdt-operational-expert-mesh",
+  "revision_id": "dad:agent-mesh-revision:lfdt-operational-expert-mesh:v1",
+  "phase": "execution",
+  "status": "active",
+  "source_snapshot_digest": "sha256:ead2a4dc8c5c755c1e357fcd8886f46862fbc489c760ab48b7db103573e4f2aa",
+  "authority": {
+    "source_authority": "Law Firm Digital Twin retains source and activation authority; Lowell retains legal, data, privacy, release, connector, and human-gate authority.",
+    "execution_authority": false,
+    "human_gate_required": true
+  },
+  "max_delegation_depth": 1,
+  "writer_role_id": "codex-bounded-writer",
+  "checker_role_id": "independent-mesh-checker",
+  "non_overlap_statement": "Only codex-bounded-writer may edit the task scope; specialists and independent-mesh-checker are read-only and cannot approve or mutate writer outputs.",
+  "roles": [
+    {
+      "role_id": "codex-bounded-writer",
+      "why_needed": "One writer integrates the accepted provider-neutral operational mesh.",
+      "mission": "Implement contracts, registry, deterministic router, documentation, and tests.",
+      "inputs": ["public repository snapshot", "specialist evidence handoffs", "DAD candidate patterns"],
+      "dependencies": ["legal-ops-specialist", "finance-carrier-specialist", "information-technology-specialist"],
+      "authority": "May write only operational-mesh files; cannot activate agents or external effects.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "writer",
+      "acceptance_conditions": ["Focused tests pass", "Full regression passes", "No private data or external authority is added"],
+      "stop_conditions": ["Authority or privacy boundary changes", "Existing user work overlaps", "External connector access becomes necessary"],
+      "handoff": {
+        "recipient_role_ids": ["independent-mesh-checker"],
+        "deliverables": ["final diff", "test evidence", "known limitations"],
+        "readiness_conditions": ["Writer checks pass"]
+      }
+    },
+    {
+      "role_id": "legal-ops-specialist",
+      "why_needed": "Intake, conflicts, assistants, paralegals, docketing, depositions, experts, and filings require distinct operational controls.",
+      "mission": "Provide read-only legal-operations topology, authority boundaries, and test obligations.",
+      "inputs": ["public repository snapshot", "public-safe DAD patterns"],
+      "dependencies": [],
+      "authority": "Read-only candidate advice; no legal conclusion or repository write.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "specialist",
+      "acceptance_conditions": ["Role separations and human-lawyer gates are explicit"],
+      "stop_conditions": ["Private or client material is encountered"],
+      "handoff": {
+        "recipient_role_ids": ["codex-bounded-writer"],
+        "deliverables": ["legal-operations topology", "negative tests"],
+        "readiness_conditions": ["Read-only review complete"]
+      }
+    },
+    {
+      "role_id": "finance-carrier-specialist",
+      "why_needed": "Time, WIP, billing, carrier guidelines, revenue, AR, cash, and reconciliation need finance segregation and IP gates.",
+      "mission": "Provide read-only finance/carrier roles, source-admission boundaries, and test obligations.",
+      "inputs": ["public repository snapshot", "public-safe DAD patterns"],
+      "dependencies": [],
+      "authority": "Read-only candidate advice; no accounting conclusion, money movement, or repository write.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "specialist",
+      "acceptance_conditions": ["Finance segregation, carrier IP controls, and trust boundary are explicit"],
+      "stop_conditions": ["Private guideline or client material is encountered"],
+      "handoff": {
+        "recipient_role_ids": ["codex-bounded-writer"],
+        "deliverables": ["finance/carrier topology", "negative tests"],
+        "readiness_conditions": ["Read-only review complete"]
+      }
+    },
+    {
+      "role_id": "information-technology-specialist",
+      "why_needed": "DMS, KM, iManage, eDiscovery, custody, holds, production, and legal tech require separate interfaces and controls.",
+      "mission": "Provide read-only information/eDiscovery topology, adapter boundaries, and test obligations.",
+      "inputs": ["public repository snapshot", "public-safe DAD patterns"],
+      "dependencies": [],
+      "authority": "Read-only candidate advice; no connector access, privilege decision, disposition, production, or repository write.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "specialist",
+      "acceptance_conditions": ["Provider-neutral DMS core, custody, privilege, hold, and production gates are explicit"],
+      "stop_conditions": ["Private or live-system material is encountered"],
+      "handoff": {
+        "recipient_role_ids": ["codex-bounded-writer"],
+        "deliverables": ["information/technology topology", "negative tests"],
+        "readiness_conditions": ["Read-only review complete"]
+      }
+    },
+    {
+      "role_id": "independent-mesh-checker",
+      "why_needed": "A material reusable agent mesh cannot approve its own decomposition or implementation.",
+      "mission": "Re-derive acceptance and independently review routing, separation, provider neutrality, authority, privacy, and regression evidence.",
+      "inputs": ["final diff", "raw permitted files", "test evidence", "acceptance contract"],
+      "dependencies": ["codex-bounded-writer"],
+      "authority": "Read-only review; cannot edit or promote the implementation.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "checker",
+      "acceptance_conditions": ["Independent findings and release recommendation are explicit"],
+      "stop_conditions": ["Checker becomes writer", "Raw permitted evidence is unavailable"],
+      "handoff": {
+        "recipient_role_ids": [],
+        "deliverables": ["independent findings", "release gate"],
+        "readiness_conditions": ["Writer handoff is complete"]
+      }
+    }
+  ],
+  "proof_obligations": [
+    {
+      "obligation_id": "provider-neutral-routing",
+      "description": "Stable roles and routing do not depend on provider or model identity.",
+      "evidence_required": ["registry inspection", "negative tests"],
+      "owner_role_id": "codex-bounded-writer",
+      "checker_role_id": "independent-mesh-checker",
+      "status": "pending"
+    },
+    {
+      "obligation_id": "authority-fail-closed",
+      "description": "External, legal, financial, privilege, filing, settlement, and disposition effects fail closed.",
+      "evidence_required": ["negative tests", "router inspection"],
+      "owner_role_id": "codex-bounded-writer",
+      "checker_role_id": "independent-mesh-checker",
+      "status": "pending"
+    },
+    {
+      "obligation_id": "segregation-of-duties",
+      "description": "Operational and finance producers have distinct checkers and incompatible duties are separated.",
+      "evidence_required": ["registry validation", "routing tests"],
+      "owner_role_id": "codex-bounded-writer",
+      "checker_role_id": "independent-mesh-checker",
+      "status": "pending"
+    },
+    {
+      "obligation_id": "public-boundary",
+      "description": "No private/client content or unauthorized reused carrier material enters the public build.",
+      "evidence_required": ["diff review", "source/reuse receipt tests"],
+      "owner_role_id": "codex-bounded-writer",
+      "checker_role_id": "independent-mesh-checker",
+      "status": "pending"
+    }
+  ],
+  "unresolved_decisions": [],
+  "manifest_digest": "sha256:26e51240ac57aaa250f15d0037e2ab2e3f2a89158224c1952bb862e835c8a58c"
+}

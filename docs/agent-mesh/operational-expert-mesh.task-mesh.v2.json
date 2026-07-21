@@ -1,0 +1,192 @@
+{
+  "schema_version": "dad.task_local_agent_mesh_manifest.v1",
+  "mesh_id": "dad:agent-mesh:lfdt-operational-expert-mesh",
+  "task_id": "lfdt-operational-expert-mesh",
+  "revision_id": "dad:agent-mesh-revision:lfdt-operational-expert-mesh:v2",
+  "supersedes_revision_id": "dad:agent-mesh-revision:lfdt-operational-expert-mesh:v1",
+  "phase": "postflight",
+  "status": "blocked",
+  "source_snapshot_digest": "sha256:a619bb7aa6de301aae23914e019330d60e0c453f8291e7506f6c16a436790616",
+  "authority": {
+    "source_authority": "Law Firm Digital Twin retains source authority; Lowell retains legal, data, privacy, release, connector, and activation authority.",
+    "execution_authority": false,
+    "human_gate_required": true
+  },
+  "max_delegation_depth": 1,
+  "writer_role_id": "codex-bounded-writer",
+  "checker_role_id": "independent-mesh-checker",
+  "non_overlap_statement": "Only codex-bounded-writer edited the task scope; specialists and the independent checker remained read-only.",
+  "roles": [
+    {
+      "role_id": "codex-bounded-writer",
+      "why_needed": "One writer integrated the accepted provider-neutral operational mesh and repaired checker findings.",
+      "mission": "Implement and validate the operational role registry, authority-ledger router, documentation, and tests.",
+      "inputs": ["v1 manifest", "three specialist handoffs", "independent checker findings"],
+      "dependencies": ["legal-ops-specialist", "finance-carrier-specialist", "information-technology-specialist"],
+      "authority": "Task-local writes only; no runtime activation or external effects.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "writer",
+      "acceptance_conditions": ["Focused tests pass", "Manifest validates", "Independent P1 reproduction is blocked"],
+      "stop_conditions": ["Authority or privacy boundary changes", "External access becomes necessary"],
+      "handoff": {
+        "recipient_role_ids": ["independent-mesh-checker"],
+        "deliverables": ["final diff", "19-test evidence", "manifest evidence"],
+        "readiness_conditions": ["Writer checks pass"]
+      }
+    },
+    {
+      "role_id": "legal-ops-specialist",
+      "why_needed": "Legal operations required domain-specific role and gate coverage.",
+      "mission": "Provide read-only legal-operations topology and negative tests.",
+      "inputs": ["public repository snapshot"],
+      "dependencies": [],
+      "authority": "Read-only candidate evidence.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "specialist",
+      "acceptance_conditions": ["Human-lawyer and role-separation gates are explicit"],
+      "stop_conditions": ["Private or client material appears"],
+      "handoff": {
+        "recipient_role_ids": ["codex-bounded-writer"],
+        "deliverables": ["topology", "test obligations"],
+        "readiness_conditions": ["Review complete"]
+      }
+    },
+    {
+      "role_id": "finance-carrier-specialist",
+      "why_needed": "Finance and carrier work required source/IP gates and segregation.",
+      "mission": "Provide read-only finance/carrier topology and negative tests.",
+      "inputs": ["public repository snapshot"],
+      "dependencies": [],
+      "authority": "Read-only candidate evidence.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "specialist",
+      "acceptance_conditions": ["Finance separation and carrier receipt gates are explicit"],
+      "stop_conditions": ["Private guideline or client material appears"],
+      "handoff": {
+        "recipient_role_ids": ["codex-bounded-writer"],
+        "deliverables": ["topology", "test obligations"],
+        "readiness_conditions": ["Review complete"]
+      }
+    },
+    {
+      "role_id": "information-technology-specialist",
+      "why_needed": "DMS, KM, iManage, and eDiscovery required adapter and custody boundaries.",
+      "mission": "Provide read-only information/technology topology and negative tests.",
+      "inputs": ["public repository snapshot"],
+      "dependencies": [],
+      "authority": "Read-only candidate evidence.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "specialist",
+      "acceptance_conditions": ["DMS neutrality and evidence gates are explicit"],
+      "stop_conditions": ["Private or live-system material appears"],
+      "handoff": {
+        "recipient_role_ids": ["codex-bounded-writer"],
+        "deliverables": ["topology", "test obligations"],
+        "readiness_conditions": ["Review complete"]
+      }
+    },
+    {
+      "role_id": "independent-mesh-checker",
+      "why_needed": "The material mesh cannot approve its own authority or decomposition claims.",
+      "mission": "Independently reproduce attacks and verify routing, separation, privacy, and manifest evidence.",
+      "inputs": ["raw permitted files", "acceptance contract", "test evidence"],
+      "dependencies": ["codex-bounded-writer"],
+      "authority": "Read-only findings; no edit or promotion authority.",
+      "model_effort_class": "high",
+      "writer_checker_relation": "checker",
+      "acceptance_conditions": ["P1 reproduction and repaired release gate are explicit"],
+      "stop_conditions": ["Checker becomes writer", "Evidence is unavailable"],
+      "handoff": {
+        "recipient_role_ids": [],
+        "deliverables": ["independent findings", "release recommendation"],
+        "readiness_conditions": ["Repair handoff complete"]
+      }
+    }
+  ],
+  "proof_obligations": [
+    {
+      "obligation_id": "provider-neutral-routing",
+      "description": "Stable role and capability identities exclude runtime/model selectors.",
+      "evidence_required": ["registry inspection", "19 focused tests"],
+      "owner_role_id": "codex-bounded-writer",
+      "checker_role_id": "independent-mesh-checker",
+      "status": "satisfied"
+    },
+    {
+      "obligation_id": "authority-fail-closed",
+      "description": "Public routing is fail-closed, but an in-process caller can import the internal builder; process isolation is still required.",
+      "evidence_required": ["forgery tests", "independent builder-bypass reproduction"],
+      "owner_role_id": "codex-bounded-writer",
+      "checker_role_id": "independent-mesh-checker",
+      "status": "failed"
+    },
+    {
+      "obligation_id": "segregation-of-duties",
+      "description": "Workers and checkers differ by identity and separation group.",
+      "evidence_required": ["registry validator", "negative collision fixture"],
+      "owner_role_id": "codex-bounded-writer",
+      "checker_role_id": "independent-mesh-checker",
+      "status": "satisfied"
+    },
+    {
+      "obligation_id": "public-boundary",
+      "description": "The implementation contains no private/client data and reused carrier assets require verified release records.",
+      "evidence_required": ["diff review", "forged receipt tests"],
+      "owner_role_id": "codex-bounded-writer",
+      "checker_role_id": "independent-mesh-checker",
+      "status": "satisfied"
+    }
+  ],
+  "unresolved_decisions": [
+    {
+      "decision_id": "authority-process-isolation",
+      "summary": "Choose and qualify a separate process or tool-capability boundary for operational routing and authority-ledger custody before activation.",
+      "owner_role_id": "independent-mesh-checker",
+      "blocking": true,
+      "status": "open"
+    }
+  ],
+  "reconciliations": [
+    {
+      "prior_role_id": "codex-bounded-writer",
+      "disposition": "reused",
+      "current_role_ids": ["codex-bounded-writer"],
+      "reason": "The writer retained scope but replaced caller-trusted gates with a kernel-owned verified ledger after independent review.",
+      "evidence_refs": ["src/law_firm_digital_twin/operational_mesh_router.py", "tests/test_operational_mesh.py"],
+      "material_drift": true
+    },
+    {
+      "prior_role_id": "legal-ops-specialist",
+      "disposition": "reused",
+      "current_role_ids": ["legal-ops-specialist"],
+      "reason": "Mission and read-only boundary were unchanged.",
+      "evidence_refs": ["v1 specialist handoff"],
+      "material_drift": true
+    },
+    {
+      "prior_role_id": "finance-carrier-specialist",
+      "disposition": "reused",
+      "current_role_ids": ["finance-carrier-specialist"],
+      "reason": "Mission and read-only boundary were unchanged.",
+      "evidence_refs": ["v1 specialist handoff"],
+      "material_drift": true
+    },
+    {
+      "prior_role_id": "information-technology-specialist",
+      "disposition": "reused",
+      "current_role_ids": ["information-technology-specialist"],
+      "reason": "Mission and read-only boundary were unchanged.",
+      "evidence_refs": ["v1 specialist handoff"],
+      "material_drift": true
+    },
+    {
+      "prior_role_id": "independent-mesh-checker",
+      "disposition": "reused",
+      "current_role_ids": ["independent-mesh-checker"],
+      "reason": "Checker remained independent and performed a second pass after the P1 repair.",
+      "evidence_refs": ["independent checker first-pass findings", "independent repair recheck"],
+      "material_drift": true
+    }
+  ],
+  "manifest_digest": "sha256:8879071e9919ee7f360e2940a1835b9ab89f793211c9ab7c01db3130b06007e7"
+}
