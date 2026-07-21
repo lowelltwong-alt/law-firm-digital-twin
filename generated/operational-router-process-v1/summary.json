@@ -1,0 +1,15 @@
+{
+  "canonical_activation_authorized": false,
+  "fixture_commitment": "sha256:4d4088ee3c18484bed436c03e81c1d333d474a2aa9d2ac2831a13342b37762f0",
+  "launches": 10,
+  "physical_identity_isolation_qualified": false,
+  "protocol_revision": "lfdt-operational-router-process-v1",
+  "raw_response_hash": "sha256:720e28cb00bfdb9126a03d15b98f9eee9f81b00189499651fec88c805acbfa38",
+  "same_user_subprocess_qualified": true,
+  "schema_commitment": "sha256:71afa7fafc94327402e24daa366b03f0db5c5bd9b14d1928030dd1d6348bd4da",
+  "schema_version": "lfdt.operational_router_process_qualification.v1",
+  "service_revision": "lfdt-operational-router-service-g2-v2",
+  "source_revision_commitment": "sha256:c4588a842fca78a6f01323b67e88552097b38d5ca863f287e2436b84be7bfbeb",
+  "status": "pass",
+  "unique_raw_response_hashes": 1
+}
